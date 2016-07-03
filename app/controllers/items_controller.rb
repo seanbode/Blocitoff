@@ -43,11 +43,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.destroy
       flash[:notice] = "Item was deleted successfully."
-      redirect_to item_path
     else
       flash[:now] = "There was an error deleting the post."
-      render :show
     end
+    redirect_to items_path
   end
 
 private

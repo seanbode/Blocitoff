@@ -2,7 +2,7 @@
   <div class="media-body">
     <p><%= item.name %> </p>
     <small>
-      created <%= time_ago_in_words(item.created_at) %> ago. <%= link_to "edit item", edit_item_path(item) %> <%= link_to "delete item", @item, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
+      created <%= time_ago_in_words(item.created_at) %> ago. <%= link_to "edit item", edit_item_path(item) %> <%= link_to "delete item", item, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
     </small>
   </div>
 <% end %>
