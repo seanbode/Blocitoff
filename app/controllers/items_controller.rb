@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = current_user.items.build(post_params)
+    @item = current_user.items.build(item_params)
 
     if @item.save
       flash[:notice] = "Item saved successfully."
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.assign_attributes(post_params)
+    @item.assign_attributes(item_params)
 
     if @item.save
       flash[:notice] = "Item saved successfully."
@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
 
 private
 
-  def post_params
-    params.require(:item).permit(:name)
+  def item_params
+    params.require(:item).permit(:name, :completed)
   end
 end
