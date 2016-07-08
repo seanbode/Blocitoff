@@ -1,8 +1,12 @@
 <%= content_tag :div, class: 'media' do %>
   <div class="media-body">
-    <p><%= item.name %> </p>
+    <p><%= link_to "", item, method: :delete, class: 'glyphicon glyphicon-ok' %> <%= item.name %> </p>
     <small>
       created <%= time_ago_in_words(item.created_at) %> ago. <%= link_to "edit item", edit_item_path(item) %> <%= link_to "delete item", item, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
     </small>
+    <%= form_for item do |f| %>
+      <%= f.check_box :completed %>
+      <%= f.submit %>
+    <% end %>
   </div>
 <% end %>
