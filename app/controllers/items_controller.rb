@@ -23,14 +23,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def show
-  end
-
   def update
     @item = Item.find(params[:id])
     @item.assign_attributes(item_params)
 
-    if @item.save
+    if @item.update(item_params)
       flash[:notice] = "Item saved successfully."
       redirect_to items_path
     else
