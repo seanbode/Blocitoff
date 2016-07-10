@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
     @items = current_user.items.order_by_created_at
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def create
     @item = current_user.items.build(item_params)
 

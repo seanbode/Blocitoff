@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :items, dependent: :destroy
+
+  def avatar_url(size)
+    gravatar_id = Digest::MD5::hexdigest(current_user.email)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
+  end
 end

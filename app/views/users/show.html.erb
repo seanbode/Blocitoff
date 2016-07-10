@@ -2,11 +2,18 @@
   <div class="col-md-8">
     <div class="media">
       <div class="media-body">
+        <br />
+        <% avatar_url = @user.avatar_url(128) %>
+        <% if avatar_url %>
+          <div class="media-left">
+            <%= image_tag avatar_url, class: 'media-object' %>
+          </div>
+        <% end %>
         <h2 class="media-heading"><%= current_user.email %></h2>
         <small>
           account created on: <%= current_user.created_at %>
-          <%= link_to "Task Manager", items_path %>
         </small>
+          <%= link_to "Task Manager", items_path %>
       </div>
     </div>
   </div>
