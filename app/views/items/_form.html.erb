@@ -1,7 +1,9 @@
 <%= form_for @item do |f| %>
-  <div class="form-group">
-    <%= f.label :name, class: 'sr-only' %>
-    <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item name" %>
+  <div class="form-inline">
+    <div class="form-group">
+      <%= f.label :name, class: 'sr-only' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Submit task" %>
+    </div>
+    <%= f.submit "Submit", class: 'btn btn-default pull-right' %>
   </div>
-  <%= f.submit "Submit Item Name", class: 'btn btn-default pull-right' %>
 <% end %>

@@ -1,19 +1,16 @@
-<div class="row">
-  <div class="col-md-8">
-    <div class="media">
-      <div class="media-body">
-        <br />
-        <% avatar_url = @user.avatar_url(128) %>
-        <% if avatar_url %>
-          <div class="media-left">
-            <%= image_tag avatar_url, class: 'media-object' %>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="media">
+          <div class="media-body">
+            <br />
+            <%= user_avatar(current_user.email) %>
+            <h2 class="media-heading"><%= current_user.email %></h2>
+            <p><small>account created on: <%= current_user.created_at %></small></p>
+            <p><%= link_to "Task Manager", items_path %></p>
           </div>
-        <% end %>
-        <h2 class="media-heading"><%= current_user.email %></h2>
-        <small>
-          account created on: <%= current_user.created_at %>
-        </small>
-          <%= link_to "Task Manager", items_path %>
+        </div>
       </div>
     </div>
   </div>
