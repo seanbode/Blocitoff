@@ -7,18 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container" color: "yellow">
-    <ul class="nav nav-pills nav-justified">
-    <% if user_signed_in? %>
-      <li><%= link_to " tasks", items_path, class: 'glyphicon glyphicon-list' %></li>
-      <li><%= link_to " #{current_user.email}", root_path, class: 'glyphicon glyphicon-user' %></li>
-      <li><%= link_to ' edit', edit_user_registration_path, class: 'glyphicon glyphicon-user'%></li>
-      <li><%= link_to " sign out", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
-    <% else %>
-      <li><%= link_to " sign up", new_user_registration_path, class: 'glyphicon glyphicon-plus' %></li>
-      <li><%= link_to " sign in", new_user_session_path, class: 'glyphicon glyphicon-log-in'  %></li>
-    <% end %>
-    </ul>
+  <div class="container">
+    <div class="spb_navbar">
+      <ul class="nav nav-pills nav-justified">
+      <% if user_signed_in? %>
+        <li><%= link_to " tasks", items_path, class: 'glyphicon glyphicon-list' %></li>
+        <li><%= link_to " #{current_user.email}", root_path, class: 'glyphicon glyphicon-user' %></li>
+        <li><%= link_to ' edit', edit_user_registration_path, class: 'glyphicon glyphicon-user'%></li>
+        <li><%= link_to " sign out", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
+      <% else %>
+        <li><%= link_to " sign up", new_user_registration_path, class: 'glyphicon glyphicon-plus' %></li>
+        <li><%= link_to " sign in", new_user_session_path, class: 'glyphicon glyphicon-log-in'  %></li>
+      <% end %>
+      </ul>
+    </div>
   </div>
 
   <div class="container">

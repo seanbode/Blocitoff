@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
     @items = current_user.items.order_by_created_at
   end
@@ -50,7 +51,7 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
-private
+  private
   def item_params
     params.require(:item).permit(:name, :completed)
   end

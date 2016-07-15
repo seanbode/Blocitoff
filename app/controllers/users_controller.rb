@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def show
-#    @user = User.find(params[:id])
+    @completed_items = current_user.items.completed
   end
 end

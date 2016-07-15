@@ -1,6 +1,8 @@
 <%= content_tag :div, class: 'media' do %>
   <div class="media-body">
-    <p><%= link_to "", item, method: :delete, class: 'glyphicon glyphicon-ok' %> <%= item.name %>
+    <p><%= form_for item do |f| %>
+      <%= check_box_tag 'item[completed]', !item.completed?, item.completed?, onclick: "this.form.submit()" %> <%= item.name %>
+    <% end %>
     <small>
       created <%= time_ago_in_words(item.created_at) %> ago. <%= link_to " ", edit_item_path(item), class: 'glyphicon glyphicon-pencil' %> <%= link_to " ", item, method: :delete, class: 'glyphicon glyphicon-remove', data: { confirm: 'Are you sure you want to delete this post?' } %>
     </small></p>

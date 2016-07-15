@@ -8,6 +8,8 @@
             <%= user_avatar(current_user.email) %>
             <h2 class="media-heading"><%= current_user.email %></h2>
             <p><small>account created on: <%= current_user.created_at %></small></p>
+            <p>tasks: <%= current_user.items.count %></p>
+            <p>completed: <%= @completed_items.count %></p>
             <p><%= link_to "Task Manager", items_path %></p>
           </div>
         </div>
